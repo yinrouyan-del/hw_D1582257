@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>舊驛新憶 | 臺中驛鐵道文化園區 專題影展</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Serif TC & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            rail: {
+              charcoal: '#181716',
+              dark: '#22201d',
+              card: '#2c2925',
+              bronze: '#b87d4b',
+              gold: '#cda873',
+              crimson: '#8b3a3a',
+              parchment: '#f7f4ed',
+              cream: '#ebe5d8',
+              muted: '#9a9488'
+            }
+          },
+          backgroundImage: {
+            'grain': "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 100%)",
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Vintage Paper Texture & Custom Scrollbar */
+    body {
+      background-color: #161514;
+      color: #ede9e1;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #181716;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4a453f;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b87d4b;
+    }
+    .ticket-edge {
+      background-image: radial-gradient(circle at 0 50%, transparent 10px, currentColor 11px);
+    }
+    .retro-stamp {
+      border: 3px double #b87d4b;
+      position: relative;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-rail-parchment selection:bg-rail-bronze selection:text-white">
+
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-rail-charcoal/90 backdrop-blur-md border-b border-rail-card transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#hero" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-full border border-rail-gold/40 flex items-center justify-center bg-rail-dark group-hover:border-rail-gold transition-colors">
+          <i data-lucide="compass" class="w-5 h-5 text-rail-gold"></i>
+        </div>
+        <div>
+          <span class="font-serif font-bold text-lg tracking-wider text-rail-parchment group-hover:text-rail-gold transition-colors block leading-tight">舊驛新憶</span>
+          <span class="text-[10px] tracking-widest text-rail-muted uppercase">Taichung Station Story</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+        <a href="#concept" class="hover:text-rail-gold transition-colors">故事概念</a>
+        <a href="#video" class="hover:text-rail-gold transition-colors">影像放映</a>
+        <a href="#gallery" class="hover:text-rail-gold transition-colors">實景圖廊</a>
+        <a href="#storyboard" class="hover:text-rail-gold transition-colors">分鏡腳本</a>
+        <a href="#insights" class="hover:text-rail-gold transition-colors">客群與定位</a>
+        <a href="#postcard" class="hover:text-rail-gold transition-colors">時空郵筒</a>
+        <a href="#team" class="hover:text-rail-gold transition-colors">製作團隊</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="flex items-center space-x-3">
+        <a href="#postcard" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-rail-charcoal bg-rail-gold hover:bg-rail-bronze hover:text-white rounded-md transition-all shadow-md">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          寫下時空信件
+        </a>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-rail-muted hover:text-rail-parchment">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-rail-dark border-b border-rail-card px-4 pt-2 pb-6 space-y-3">
+      <a href="#concept" class="block py-2 text-base font-medium text-rail-parchment hover:text-rail-gold">故事概念</a>
+      <a href="#video" class="block py-2 text-base font-medium text-rail-parchment hover:text-rail-gold">影像放映</a>
+      <a href="#gallery" class="block py-2 text-base font-medium text-rail-parchment hover:text-rail-gold">實景圖廊</a>
+      <a href="#storyboard" class="block py-2 text-base font-medium text-rail-parchment hover:text-rail-gold">分鏡腳本</a>
+      <a href="#insights" class="block py-2 text-base font-medium text-rail-parchment hover:text-rail-gold">客群與定位</a>
+      <a href="#postcard" class="block py-2 text-base font-medium text-rail-parchment hover:text-rail-gold">時空郵筒</a>
+      <a href="#team" class="block py-2 text-base font-medium text-rail-parchment hover:text-rail-gold">製作團隊</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+    <!-- Atmospheric Ambient Elements -->
+    <div class="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(184,125,75,0.2),rgba(22,21,20,0))]"></div>
+    <div class="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-rail-charcoal to-transparent z-10 pointer-events-none"></div>
+
+    <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+      
+      <!-- Vintage Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-rail-gold/30 bg-rail-dark/80 backdrop-blur-sm text-rail-gold text-xs font-serif tracking-widest uppercase mb-8 shadow-inner">
+        <span class="w-1.5 h-1.5 rounded-full bg-rail-gold animate-pulse"></span>
+        短影音企劃 × 百年鐵道歷史微觀光
+      </div>
+
+      <!-- Main Headline with Serif Typography -->
+      <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-rail-parchment mb-4 leading-none drop-shadow-sm">
+        舊 驛 新 憶
+      </h1>
+      
+      <!-- Sub-slogan -->
+      <p class="font-serif text-2xl sm:text-3xl lg:text-4xl text-rail-gold tracking-widest font-normal my-4 flex items-center justify-center gap-4">
+        <span class="h-[1px] w-8 sm:w-16 bg-rail-gold/40"></span>
+        歲月日新，驛動人心
+        <span class="h-[1px] w-8 sm:w-16 bg-rail-gold/40"></span>
+      </p>
+
+      <p class="max-w-2xl text-rail-muted text-sm sm:text-base md:text-lg font-light leading-relaxed mb-10 text-center">
+        從第二代國定古蹟二代紅磚車站，到當代第三代高架站體與鐵鹿大街。<br class="hidden sm:inline">
+        手持一張泛黃的大墩舊車票，展開一場時空交疊的 30–60 分鐘微觀光散策。
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <a href="#concept" class="px-8 py-3.5 rounded-xl bg-rail-gold hover:bg-rail-bronze text-rail-charcoal hover:text-white font-semibold transition-all duration-300 shadow-lg shadow-rail-gold/10 flex items-center justify-center gap-2">
+          <i data-lucide="play-circle" class="w-5 h-5"></i>
+          進入故事觀點
+        </a>
+        <a href="#insights" class="px-8 py-3.5 rounded-xl bg-rail-card hover:bg-rail-dark border border-rail-muted/30 text-rail-parchment font-medium transition-all duration-300 flex items-center justify-center gap-2">
+          <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+          行銷定位分析
+        </a>
+      </div>
+
+      <!-- Visual Stats Ribbon -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mt-16 pt-10 border-t border-rail-card/70 w-full max-w-4xl text-left sm:text-center">
+        <div class="p-3">
+          <div class="text-xs text-rail-muted font-mono tracking-wider">HISTORICAL ASSET</div>
+          <div class="text-xl sm:text-2xl font-serif font-bold text-rail-gold mt-1">三代共構</div>
+          <div class="text-xs text-rail-muted/80 mt-0.5">全臺罕見百年鐵道脈絡</div>
+        </div>
+        <div class="p-3">
+          <div class="text-xs text-rail-muted font-mono tracking-wider">HERITAGE FLEET</div>
+          <div class="text-xl sm:text-2xl font-serif font-bold text-rail-gold mt-1">EMU100 / DR2700</div>
+          <div class="text-xs text-rail-muted/80 mt-0.5">經典傳奇退役自強號列車</div>
+        </div>
+        <div class="p-3">
+          <div class="text-xs text-rail-muted font-mono tracking-wider">TARGET AUDIENCE</div>
+          <div class="text-xl sm:text-2xl font-serif font-bold text-rail-gold mt-1">18–30 歲</div>
+          <div class="text-xs text-rail-muted/80 mt-0.5">重視故事美感與社群旅人</div>
+        </div>
+        <div class="p-3">
+          <div class="text-xs text-rail-muted font-mono tracking-wider">TOUR DURATION</div>
+          <div class="text-xl sm:text-2xl font-serif font-bold text-rail-gold mt-1">30–60 min</div>
+          <div class="text-xs text-rail-muted/80 mt-0.5">等車空檔的高效微觀光</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Screening Room Section -->
+  <section id="video" class="py-24 bg-rail-charcoal relative border-t border-rail-card">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-1.5 text-rail-bronze text-xs font-semibold tracking-widest uppercase mb-2">
+          <i data-lucide="film" class="w-4 h-4"></i>
+          FEATURED VIDEO SCREENING
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-rail-parchment tracking-wide">
+          影展影像放映廳
+        </h2>
+        <p class="text-rail-muted mt-3 text-sm sm:text-base">
+          走進時空鏡頭：欣賞《舊驛新憶》企劃短片、臺中驛百年風貌導覽與甲八組拍攝幕後紀實。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Main Video Frame -->
+        <div class="lg:col-span-8 bg-rail-dark p-3 sm:p-5 rounded-2xl border border-rail-card shadow-2xl">
+          <div class="relative w-full overflow-hidden rounded-xl bg-black aspect-video shadow-inner">
+            <iframe 
+              id="main-video-player" 
+              class="w-full h-full border-0" 
+              src="https://www.youtube-nocookie.com/embed/6iO2xZc165I?enablejsapi=1&rel=0&modestbranding=1" 
+              title="臺中驛鐵道文化園區介紹影片" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Video Meta Information -->
+          <div class="mt-5 p-3 sm:p-4 rounded-xl bg-rail-card/60 border border-rail-card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="inline-flex items-center gap-2 mb-1">
+                <span id="video-tag" class="px-2 py-0.5 rounded text-[10px] font-mono bg-rail-gold/20 text-rail-gold">主題宣傳</span>
+                <span id="video-duration" class="text-xs text-rail-muted font-mono">03:20 · 4K UHD</span>
+              </div>
+              <h3 id="video-title" class="font-serif font-bold text-lg sm:text-xl text-rail-parchment">
+                《舊驛新憶》時空漫步微電影 × 臺中驛鐵道風貌
+              </h3>
+              <p id="video-desc" class="text-xs text-rail-muted mt-1 leading-relaxed">
+                結合時空穿越題材與現代 Vlog 微觀光，穿梭國定古蹟二代車站、舊月台與現代高架新站，演繹「歲月日新，驛動人心」。
+              </p>
+            </div>
+            <a href="#postcard" class="shrink-0 px-4 py-2 bg-rail-bronze hover:bg-rail-gold text-white hover:text-rail-charcoal text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-1.5">
+              <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+              寄信留念
+            </a>
+          </div>
+        </div>
+
+        <!-- Video Playlist / Tabs Sidebar -->
+        <div class="lg:col-span-4 space-y-3">
+          <div class="text-xs font-mono text-rail-muted uppercase tracking-wider px-1 flex items-center justify-between">
+            <span>放映單元列表</span>
+            <span class="text-[10px] text-rail-gold">3 VIDEOS</span>
+          </div>
+
+          <!-- Video Item 1 -->
+          <button onclick="changeVideo('6iO2xZc165I', '《舊驛新憶》時空漫步微電影 × 臺中驛鐵道風貌', '結合時空穿越題材與現代 Vlog 微觀光，穿梭國定古蹟二代車站、舊月台與現代高架新站，演繹「歲月日新，驛動人心」。', '主題宣傳', '03:20 · 4K UHD', this)" class="video-btn active w-full p-3.5 rounded-xl bg-rail-card border-2 border-rail-gold text-left transition-all duration-200 flex gap-3 group">
+            <div class="w-24 h-16 rounded-lg bg-neutral-900 overflow-hidden shrink-0 relative flex items-center justify-center border border-rail-muted/20">
+              <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=400&q=80" alt="影展前導" class="w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/400x250/22201d/cda873?text=Taichung+Station'">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <i data-lucide="play" class="w-5 h-5 text-rail-gold"></i>
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <span class="text-[10px] font-mono text-rail-gold block">NOW PLAYING</span>
+              <h4 class="font-serif text-xs font-bold text-rail-parchment truncate mt-0.5">《舊驛新憶》主題概念微電影</h4>
+              <p class="text-[11px] text-rail-muted line-clamp-2 mt-1">手持大墩舊車票，展開 30–60 分鐘時空對望探索。</p>
+            </div>
+          </button>
+
+          <!-- Video Item 2 -->
+          <button onclick="changeVideo('WpLhJ5Qe89s', '百年車站地景漫遊：臺中驛鐵道文化園區全導覽', '由空拍與走讀視角認識全臺唯一三代共構車站，涵蓋第一代舊軌、第二代巴洛克式鐘樓與第三代綠空長廊。', '園區導覽', '04:15 · 1080P', this)" class="video-btn w-full p-3.5 rounded-xl bg-rail-card/60 hover:bg-rail-card border border-rail-card hover:border-rail-muted/40 text-left transition-all duration-200 flex gap-3 group">
+            <div class="w-24 h-16 rounded-lg bg-neutral-900 overflow-hidden shrink-0 relative flex items-center justify-center border border-rail-muted/20">
+              <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=400&q=80" alt="百年車站" class="w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/400x250/22201d/cda873?text=Heritage+Park'">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <i data-lucide="play" class="w-5 h-5 text-rail-parchment group-hover:text-rail-gold"></i>
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <span class="text-[10px] font-mono text-rail-muted block">EPISODE 02</span>
+              <h4 class="font-serif text-xs font-bold text-rail-parchment truncate mt-0.5">百年古蹟與退役列車實境走讀</h4>
+              <p class="text-[11px] text-rail-muted line-clamp-2 mt-1">直擊 EMU100 自強號與歷史月台保存地景。</p>
+            </div>
+          </button>
+
+          <!-- Video Item 3 -->
+          <button onclick="changeVideo('z_zE-WcM1Vw', '甲八製作組・幕後拍攝花絮與田野紀實', '收錄組長佳芊、導演佳臻、攝影芷盈與演員筑晴在園區清晨與黃昏拍攝的鏡頭背後點滴。', '幕後紀實', '02:45 · 1080P', this)" class="video-btn w-full p-3.5 rounded-xl bg-rail-card/60 hover:bg-rail-card border border-rail-card hover:border-rail-muted/40 text-left transition-all duration-200 flex gap-3 group">
+            <div class="w-24 h-16 rounded-lg bg-neutral-900 overflow-hidden shrink-0 relative flex items-center justify-center border border-rail-muted/20">
+              <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=400&q=80" alt="幕後花絮" class="w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/400x250/22201d/cda873?text=Behind+The+Scenes'">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <i data-lucide="play" class="w-5 h-5 text-rail-parchment group-hover:text-rail-gold"></i>
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <span class="text-[10px] font-mono text-rail-muted block">BEHIND THE SCENE</span>
+              <h4 class="font-serif text-xs font-bold text-rail-parchment truncate mt-0.5">甲八組・幕後拍攝與田野紀實</h4>
+              <p class="text-[11px] text-rail-muted line-clamp-2 mt-1">走訪老月台、分鏡推敲與演員穿越演繹過程。</p>
+            </div>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Photo Gallery Section -->
+  <section id="gallery" class="py-24 bg-rail-dark relative border-t border-rail-card">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-rail-bronze text-xs font-semibold tracking-widest uppercase mb-2">
+            <i data-lucide="camera" class="w-4 h-4"></i>
+            PHOTO ARCHIVE & ARCHITECTURE
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-rail-parchment">
+            臺中驛鐵道場域・寫真圖廊
+          </h2>
+        </div>
+        <p class="text-rail-muted text-sm max-w-md mt-4 md:mt-0">
+          全臺唯一完整見證「三代車站」百年脈絡。點擊照片可放大檢視國定古蹟與退役列車細節。
+        </p>
+      </div>
+
+      <!-- Photo Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Gallery Item 1: 國定古蹟二代車站 -->
+        <div onclick="openLightbox('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80', '國定古蹟第二代臺中車站', '興建於1917年日治時期的紅磚造巴洛克風格建築，中央高聳鐘樓、精緻山牆與馬薩式屋頂，完整見證臺灣近代鐵道門戶榮景。')" class="group cursor-pointer rounded-2xl overflow-hidden bg-rail-card border border-rail-card hover:border-rail-gold/60 transition-all duration-300 shadow-lg">
+          <div class="h-60 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="國定古蹟第二代臺中車站" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/22201d/cda873?text=Taichung+Heritage+Station'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded bg-rail-dark/80 backdrop-blur-md text-rail-gold text-[10px] font-mono border border-rail-gold/30">國定古蹟 · 1917</span>
+            <span class="absolute bottom-3 right-3 text-white/80 group-hover:text-rail-gold transition-colors">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif font-bold text-base text-rail-parchment group-hover:text-rail-gold transition-colors">
+              國定古蹟第二代車站紅磚鐘樓
+            </h3>
+            <p class="text-xs text-rail-muted mt-1.5 leading-relaxed">
+              典雅巴洛克山牆與紅磚白飾帶，是整座園區最具精神代表性的歷史地標與電影開場起點。
+            </p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 2: EMU100 自強號 -->
+        <div onclick="openLightbox('https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=80', 'EMU100 型電聯車（英國貴婦）', '臺灣鐵路電氣化後首款引進的自強號列車。1978年投入營運，米黃色與褐色相間的經典塗裝與英式雅緻端面，被鐵道迷暱稱為「英國婆仔/英國貴婦」。')" class="group cursor-pointer rounded-2xl overflow-hidden bg-rail-card border border-rail-card hover:border-rail-gold/60 transition-all duration-300 shadow-lg">
+          <div class="h-60 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80" alt="EMU100 自強號" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/22201d/cda873?text=EMU100+Heritage+Train'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded bg-rail-dark/80 backdrop-blur-md text-rail-gold text-[10px] font-mono border border-rail-gold/30">經典退役自強號 · 1978</span>
+            <span class="absolute bottom-3 right-3 text-white/80 group-hover:text-rail-gold transition-colors">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif font-bold text-base text-rail-parchment group-hover:text-rail-gold transition-colors">
+              EMU100 自強號（英國貴婦）實體展
+            </h3>
+            <p class="text-xs text-rail-muted mt-1.5 leading-relaxed">
+              靜止停泊於舊軌月台，旅人可近距離欣賞金屬鉚釘與車廂線條，沉浸於 70 年代鐵道繁華記憶。
+            </p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 3: DR2700 光華號柴油客車 -->
+        <div onclick="openLightbox('https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=1200&q=80', 'DR2700 型柴油客車（白鐵武士）', '1966年自日本東急車輛引進，車體採用不鏽鋼波紋打造，曾以創下西部幹線最快行車紀錄的光華號馳名全臺。')" class="group cursor-pointer rounded-2xl overflow-hidden bg-rail-card border border-rail-card hover:border-rail-gold/60 transition-all duration-300 shadow-lg">
+          <div class="h-60 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=800&q=80" alt="DR2700 光華號柴油客車" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/22201d/cda873?text=DR2700+Silver+Train'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded bg-rail-dark/80 backdrop-blur-md text-rail-gold text-[10px] font-mono border border-rail-gold/30">白鐵武士 · 1966</span>
+            <span class="absolute bottom-3 right-3 text-white/80 group-hover:text-rail-gold transition-colors">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif font-bold text-base text-rail-parchment group-hover:text-rail-gold transition-colors">
+              DR2700 光華號（白鐵武士）
+            </h3>
+            <p class="text-xs text-rail-muted mt-1.5 leading-relaxed">
+              銀白色不鏽鋼波浪紋外觀，展現昭和東急車輛工業美學，是短影音穿越場景的熱門視覺焦點。
+            </p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 4: 舊月台與軌道地景 -->
+        <div onclick="openLightbox('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80', '舊軌道與百年鑄鐵月台遮雨棚', '保存原有舊線枕木、轉轍器地景與鑄鐵鏤空雕花月台柱，現代旅人可在軌道漫步，體驗昔日離別與重逢的情境。')" class="group cursor-pointer rounded-2xl overflow-hidden bg-rail-card border border-rail-card hover:border-rail-gold/60 transition-all duration-300 shadow-lg">
+          <div class="h-60 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80" alt="舊月台與軌道地景" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/22201d/cda873?text=Old+Platform+Tracks'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded bg-rail-dark/80 backdrop-blur-md text-rail-gold text-[10px] font-mono border border-rail-gold/30">歷史地景 · 舊月台</span>
+            <span class="absolute bottom-3 right-3 text-white/80 group-hover:text-rail-gold transition-colors">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif font-bold text-base text-rail-parchment group-hover:text-rail-gold transition-colors">
+              舊軌月台與枕木步道漫遊
+            </h3>
+            <p class="text-xs text-rail-muted mt-1.5 leading-relaxed">
+              卸下繁重交通使命後的開闊舊軌道，轉型為假日市集、街頭駐唱與風格走讀者的核心散策步道。
+            </p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 5: 新舊站體共融穿廊 -->
+        <div onclick="openLightbox('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80', '新舊站體共構天際線', '當代鋼骨結構的第三代高架臺中車站，與腳下的百年第二代紅磚站體相互交融，象徵臺中百年月台的持續進化。')" class="group cursor-pointer rounded-2xl overflow-hidden bg-rail-card border border-rail-card hover:border-rail-gold/60 transition-all duration-300 shadow-lg">
+          <div class="h-60 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="新舊站體共融穿廊" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/22201d/cda873?text=Modern+High+Station'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded bg-rail-dark/80 backdrop-blur-md text-rail-gold text-[10px] font-mono border border-rail-gold/30">時代對照 · 新舊共融</span>
+            <span class="absolute bottom-3 right-3 text-white/80 group-hover:text-rail-gold transition-colors">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif font-bold text-base text-rail-parchment group-hover:text-rail-gold transition-colors">
+              三代高架站體與綠空廊道
+            </h3>
+            <p class="text-xs text-rail-muted mt-1.5 leading-relaxed">
+              從現代明亮的高架穿廊向下俯瞰百年紅磚屋脊，也是企劃短片《舊驛新憶》女主角時空穿越的關鍵場景。
+            </p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 6: 鐵鹿大街商場 -->
+        <div onclick="openLightbox('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80', '鐵鹿大街商場與複合休閒空間', '位於車站一樓的複合生活商場，引進在地美食、伴手禮文創店鋪與全天候冷氣休憩座位，打破過境枯燥等待。')" class="group cursor-pointer rounded-2xl overflow-hidden bg-rail-card border border-rail-card hover:border-rail-gold/60 transition-all duration-300 shadow-lg">
+          <div class="h-60 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="鐵鹿大街商場" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/22201d/cda873?text=TieLu+Marketplace'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded bg-rail-dark/80 backdrop-blur-md text-rail-gold text-[10px] font-mono border border-rail-gold/30">現代機能 · 鐵鹿大街</span>
+            <span class="absolute bottom-3 right-3 text-white/80 group-hover:text-rail-gold transition-colors">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif font-bold text-base text-rail-parchment group-hover:text-rail-gold transition-colors">
+              鐵鹿大街美食與生活選品商場
+            </h3>
+            <p class="text-xs text-rail-muted mt-1.5 leading-relaxed">
+              為轉乘通勤族與外地觀光客提供全天候一站式餐飲採買機能，實現「微觀光＋快捷休憩」的無負擔體驗。
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4 sm:p-8">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 p-2 rounded-full bg-rail-card/80 text-rail-parchment hover:text-rail-gold hover:bg-rail-card transition-colors z-10">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <div class="max-w-4xl w-full bg-rail-charcoal border border-rail-card rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+      <div class="max-h-[70vh] bg-black flex items-center justify-center overflow-hidden">
+        <img id="lightbox-img" src="" alt="燈箱放大圖" class="w-full h-auto max-h-[70vh] object-contain">
+      </div>
+      <div class="p-6 bg-rail-dark border-t border-rail-card">
+        <h4 id="lightbox-title" class="font-serif font-bold text-lg text-rail-parchment"></h4>
+        <p id="lightbox-desc" class="text-xs text-rail-muted mt-2 leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Film Story Synopsis Section -->
+  <section id="concept" class="py-24 bg-rail-dark relative border-t border-rail-card">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 text-rail-bronze text-xs font-semibold tracking-widest uppercase mb-2">
+          <i data-lucide="clapperboard" class="w-4 h-4"></i>
+          FILM CONCEPT & STORY
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-rail-parchment tracking-wide">
+          故事腳本大綱：奇幻時空旅人 Vlog
+        </h2>
+        <p class="text-rail-muted mt-3 text-sm sm:text-base">
+          「車站連結的不只是遠方，更是過去、現在，以及我們所遇見的人。」
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Story Narrative Box -->
+        <div class="lg:col-span-7 bg-rail-card/50 p-8 sm:p-10 rounded-2xl border border-rail-card shadow-xl space-y-6">
+          <div class="flex items-center gap-3 border-b border-rail-muted/20 pb-4">
+            <span class="px-2.5 py-1 bg-rail-bronze/20 text-rail-gold text-xs font-mono rounded">短片時長 2-3 分鐘</span>
+            <span class="text-xs text-rail-muted font-mono">形式：時空穿越劇 × 車站微觀光 Vlog</span>
+          </div>
+
+          <div class="space-y-4 text-rail-cream text-sm sm:text-base leading-relaxed">
+            <p>
+              女主角手持舊式「<strong class="text-rail-gold font-normal underline decoration-rail-gold/40 underline-offset-4">大墩</strong>」硬卡車票步入過去喧鬧的臺中舊火車站。在舊月台悠然登上老列車，隨著車輪與鐵軌交織的震盪聲與畫面劇烈閃白，下車那一剎那，手中的舊車票與時刻表在眨眼間轉為當代電子屏幕。
+            </p>
+            <p>
+              茫然步出當代車站的女主角，在人潮洶湧的新站穿堂巧遇一位熱情的現代女孩。得知女主角不可思議的穿越遭遇後，現代女孩手持相機帶領她展開一場 <strong class="text-rail-gold font-normal">30-60 分鐘的微觀光探索</strong>：
+            </p>
+            <div class="p-4 rounded-xl bg-rail-charcoal/60 border-l-2 border-rail-gold space-y-2 text-xs sm:text-sm text-rail-muted">
+              <p>✦ <strong class="text-rail-parchment">站體穿梭：</strong>高架新站穿廊、俯瞰軌道，直通歷史舊站紅磚鐘樓</p>
+              <p>✦ <strong class="text-rail-parchment">鐵道地景：</strong>漫步舊軌小市集，並肩品味退役 EMU100 自強號與 DR2700 柴油客車的歲月金屬質地</p>
+              <p>✦ <strong class="text-rail-parchment">生活歇息：</strong>走入鐵鹿大街享受特色飲品小憩，在時空郵筒前留下思緒</p>
+            </div>
+            <p>
+              歸程之際，女主角登上返回過去的列車。短片尾聲透過<span class="text-rail-gold">雙分割畫面</span>呈現：過去的女主角與現代的女孩身處不同時空隔空相望，歲月流轉，而車站所沈澱的情感記憶始終溫熱如初。
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-rail-muted/20">
+            <span class="text-xs text-rail-muted">廣告 Slogan:</span>
+            <span class="text-rail-gold font-serif text-lg tracking-widest font-semibold">「歲月日新，驛動人心」</span>
+          </div>
+        </div>
+
+        <!-- Atmospheric Poster Card -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="w-full max-w-sm rounded-2xl overflow-hidden border border-rail-bronze/40 bg-rail-charcoal shadow-2xl relative p-6">
+            <div class="border border-dashed border-rail-gold/30 p-6 rounded-xl flex flex-col items-center text-center">
+              <div class="w-16 h-16 rounded-full border border-rail-gold flex items-center justify-center mb-4">
+                <i data-lucide="train" class="w-8 h-8 text-rail-gold"></i>
+              </div>
+              <div class="font-serif text-2xl font-bold tracking-widest text-rail-parchment">臺中驛・時空快車</div>
+              <div class="text-[11px] text-rail-muted font-mono tracking-widest mt-1 uppercase">Taichung Historical Railway Park</div>
+              
+              <div class="my-6 w-full border-t border-b border-rail-card/80 py-4 flex justify-between items-center px-4 font-mono text-xs">
+                <div>
+                  <span class="text-rail-muted block text-[10px]">起站 ORIGIN</span>
+                  <span class="text-rail-gold font-bold text-sm">大墩驛 (昔)</span>
+                </div>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-rail-muted"></i>
+                <div>
+                  <span class="text-rail-muted block text-[10px]">迄站 DEST</span>
+                  <span class="text-rail-gold font-bold text-sm">臺中驛 (今)</span>
+                </div>
+              </div>
+
+              <div class="text-xs text-rail-cream/80 italic leading-relaxed">
+                「在快速奔忙的高鐵世代，留給自己半小時，重溫那段蒸汽與柴油混合的懷舊溫度。」
+              </div>
+
+              <div class="mt-6 flex items-center gap-2 text-[10px] text-rail-muted">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-rail-bronze"></i>
+                國定古蹟二代車站 × 退役列車實體展示
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Visual Storyboard Section -->
+  <section id="storyboard" class="py-24 bg-rail-charcoal relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-rail-bronze text-xs font-semibold tracking-widest uppercase mb-2">
+            <i data-lucide="film" class="w-4 h-4"></i>
+            PRODUCTION STORYBOARDS
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-rail-parchment">
+            企劃分鏡與敘事節奏
+          </h2>
+        </div>
+        <p class="text-rail-muted text-sm max-w-md mt-4 md:mt-0">
+          透過嚴謹的分鏡規劃，融合手持 Vlog 的親切感與時空交疊的奇幻電影氛圍。
+        </p>
+      </div>
+
+      <!-- Storyboard Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Shot 1 -->
+        <div class="bg-rail-card rounded-xl border border-rail-card/70 overflow-hidden hover:border-rail-bronze/60 transition-all duration-300 flex flex-col group">
+          <div class="p-4 bg-rail-dark flex items-center justify-between border-b border-rail-card">
+            <span class="font-mono text-xs text-rail-gold">SCENE 01 / TAKE 01-02</span>
+            <span class="text-xs text-rail-muted">開場・舊驛初遇</span>
+          </div>
+          <div class="h-44 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center border-b border-rail-card relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#b87d4b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <i data-lucide="ticket" class="w-10 h-10 text-rail-bronze/70 mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-mono text-rail-muted">【畫面描繪】</span>
+            <p class="text-xs text-rail-cream mt-1 font-serif">女主角身著古樸洋裝走入紅磚老車站，手執「大墩」厚卡紙車票在舊月台候車。</p>
+          </div>
+          <div class="p-4 text-xs text-rail-muted space-y-1">
+            <p><strong class="text-rail-parchment">鏡頭語言：</strong>中景後跟隨視角，老式暖黃色調，環境充斥蒸汽與金屬軌道聲響。</p>
+            <p><strong class="text-rail-gold">企劃意涵：</strong>勾勒百年老站文化厚度，建立第一代旅人情感起點。</p>
+          </div>
+        </div>
+
+        <!-- Shot 2 -->
+        <div class="bg-rail-card rounded-xl border border-rail-card/70 overflow-hidden hover:border-rail-bronze/60 transition-all duration-300 flex flex-col group">
+          <div class="p-4 bg-rail-dark flex items-center justify-between border-b border-rail-card">
+            <span class="font-mono text-xs text-rail-gold">SCENE 02 / TAKE 03-04</span>
+            <span class="text-xs text-rail-muted">轉場・眨眼時空</span>
+          </div>
+          <div class="h-44 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center border-b border-rail-card relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#b87d4b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <i data-lucide="zap" class="w-10 h-10 text-rail-gold mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-mono text-rail-muted">【畫面描繪】</span>
+            <p class="text-xs text-rail-cream mt-1 font-serif">車廂穿梭白光閃過，紙車票特寫迅速流轉蛻變為現代電子QR車票，時刻表動態更新。</p>
+          </div>
+          <div class="p-4 text-xs text-rail-muted space-y-1">
+            <p><strong class="text-rail-parchment">鏡頭語言：</strong>極短特寫剪接，強烈快門音效，從復古底片感跳轉現代高對比度畫面。</p>
+            <p><strong class="text-rail-gold">企劃意涵：</strong>新舊車站跨世代碰撞，象徵臺中驛空間從通勤轉向文化的蛻變。</p>
+          </div>
+        </div>
+
+        <!-- Shot 3 -->
+        <div class="bg-rail-card rounded-xl border border-rail-card/70 overflow-hidden hover:border-rail-bronze/60 transition-all duration-300 flex flex-col group">
+          <div class="p-4 bg-rail-dark flex items-center justify-between border-b border-rail-card">
+            <span class="font-mono text-xs text-rail-gold">SCENE 03 / TAKE 01-04</span>
+            <span class="text-xs text-rail-muted">相遇・茫然與搭話</span>
+          </div>
+          <div class="h-44 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center border-b border-rail-card relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#b87d4b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <i data-lucide="users" class="w-10 h-10 text-rail-bronze/70 mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-mono text-rail-muted">【畫面描繪】</span>
+            <p class="text-xs text-rail-cream mt-1 font-serif">女主角面對高聳新站大廳不知所措，巧遇手持微單的現代女孩主動上前解惑。</p>
+          </div>
+          <div class="p-4 text-xs text-rail-muted space-y-1">
+            <p><strong class="text-rail-parchment">鏡頭語言：</strong>環繞 360 度茫然全景鏡頭，接著切入親切的近身平視特寫。</p>
+            <p><strong class="text-rail-gold">企劃意涵：</strong>象徵現代青年對歷史好奇的友善眼神，串連兩代人的同理心。</p>
+          </div>
+        </div>
+
+        <!-- Shot 4 -->
+        <div class="bg-rail-card rounded-xl border border-rail-card/70 overflow-hidden hover:border-rail-bronze/60 transition-all duration-300 flex flex-col group">
+          <div class="p-4 bg-rail-dark flex items-center justify-between border-b border-rail-card">
+            <span class="font-mono text-xs text-rail-gold">SCENE 04 / TAKE 01-03</span>
+            <span class="text-xs text-rail-muted">走讀・漫遊微觀光</span>
+          </div>
+          <div class="h-44 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center border-b border-rail-card relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#b87d4b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <i data-lucide="coffee" class="w-10 h-10 text-rail-bronze/70 mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-mono text-rail-muted">【畫面描繪】</span>
+            <p class="text-xs text-rail-cream mt-1 font-serif">兩人手扶梯遠眺、走過舊軌市集攤販、駐足 EMU100 退役車廂前拍照微笑。</p>
+          </div>
+          <div class="p-4 text-xs text-rail-muted space-y-1">
+            <p><strong class="text-rail-parchment">鏡頭語言：</strong>第一人稱 Vlog 視角手持拍錄，充滿生活呼吸感與輕快節奏。</p>
+            <p><strong class="text-rail-gold">企劃意涵：</strong>示範 30–60 分鐘等車空檔便能完成的高品質微旅行範本。</p>
+          </div>
+        </div>
+
+        <!-- Shot 5 -->
+        <div class="bg-rail-card rounded-xl border border-rail-card/70 overflow-hidden hover:border-rail-bronze/60 transition-all duration-300 flex flex-col group">
+          <div class="p-4 bg-rail-dark flex items-center justify-between border-b border-rail-card">
+            <span class="font-mono text-xs text-rail-gold">SCENE 05 / 柱子轉場</span>
+            <span class="text-xs text-rail-muted">轉念・新舊交會</span>
+          </div>
+          <div class="h-44 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center border-b border-rail-card relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#b87d4b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <i data-lucide="columns-2" class="w-10 h-10 text-rail-gold mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-mono text-rail-muted">【畫面描繪】</span>
+            <p class="text-xs text-rail-cream mt-1 font-serif">兩人並肩走過磚柱遮擋，鏡頭一轉，身旁景致從繁華現代商場無縫滑入昔日紅磚木月台。</p>
+          </div>
+          <div class="p-4 text-xs text-rail-muted space-y-1">
+            <p><strong class="text-rail-parchment">鏡頭語言：</strong>巧妙利用建築石柱做水平遮罩轉場（Wipe Transition）。</p>
+            <p><strong class="text-rail-gold">企劃意涵：</strong>彰顯園區「同一個座標，兩個世紀的風景」之空間特質。</p>
+          </div>
+        </div>
+
+        <!-- Shot 6 -->
+        <div class="bg-rail-card rounded-xl border border-rail-card/70 overflow-hidden hover:border-rail-bronze/60 transition-all duration-300 flex flex-col group">
+          <div class="p-4 bg-rail-dark flex items-center justify-between border-b border-rail-card">
+            <span class="font-mono text-xs text-rail-gold">SCENE 06 / 尾聲定格</span>
+            <span class="text-xs text-rail-muted">尾聲・隔空對望</span>
+          </div>
+          <div class="h-44 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center border-b border-rail-card relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#b87d4b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <i data-lucide="split" class="w-10 h-10 text-rail-bronze/70 mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-mono text-rail-muted">【畫面描繪】</span>
+            <p class="text-xs text-rail-cream mt-1 font-serif">女主角登上回程列車。畫面分割：左側過去、右側現代，兩人在不同時空微笑回首。</p>
+          </div>
+          <div class="p-4 text-xs text-rail-muted space-y-1">
+            <p><strong class="text-rail-parchment">鏡頭語言：</strong>雙屏對比（Split Screen），字幕浮現：「歲月日新，驛動人心」。</p>
+            <p><strong class="text-rail-gold">企劃意涵：</strong>深刻點題，將短暫過境轉乘轉化為長久的情感記憶錨點。</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Marketing Insights & STP Strategy Section -->
+  <section id="insights" class="py-24 bg-rail-dark relative border-t border-rail-card">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 text-rail-bronze text-xs font-semibold tracking-widest uppercase mb-2">
+          <i data-lucide="target" class="w-4 h-4"></i>
+          MARKETING & TARGET INSIGHTS
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-rail-parchment">
+          三大客群洞察與市場十字定位
+        </h2>
+        <p class="text-rail-muted mt-3 text-sm sm:text-base">
+          依據問卷實證與行為心理學切分，突破「純過境通勤」痛點，精準推動觀光轉化金字塔。
+        </p>
+      </div>
+
+      <!-- Interactive Persona Tabs -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <div class="flex flex-wrap border-b border-rail-card gap-2 justify-center mb-8">
+          <button onclick="switchTab('ta1')" id="tab-btn-ta1" class="px-5 py-3 text-xs sm:text-sm font-semibold border-b-2 border-rail-gold text-rail-gold flex items-center gap-2 transition-all">
+            <i data-lucide="compass" class="w-4 h-4"></i>
+            TA1: 舊城走讀風格探索者 (26.8%)
+          </button>
+          <button onclick="switchTab('ta2')" id="tab-btn-ta2" class="px-5 py-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-rail-muted hover:text-rail-parchment flex items-center gap-2 transition-all">
+            <i data-lucide="map-pin" class="w-4 h-4"></i>
+            TA2: 外縣市與國際觀光客 (33.3%)
+          </button>
+          <button onclick="switchTab('ta3')" id="tab-btn-ta3" class="px-5 py-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-rail-muted hover:text-rail-parchment flex items-center gap-2 transition-all">
+            <i data-lucide="clock" class="w-4 h-4"></i>
+            TA3: 過境通勤與轉運族 (39.9%)
+          </button>
+        </div>
+
+        <!-- Tab 1 Content -->
+        <div id="tab-content-ta1" class="bg-rail-card p-6 sm:p-8 rounded-2xl border border-rail-card/70 space-y-6">
+          <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 border-b border-rail-muted/20 pb-4">
+            <div>
+              <span class="text-xs font-mono text-rail-gold tracking-widest uppercase">PYRAMID TOP LAYER / 深度觀光</span>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-rail-parchment">舊城走讀風格探索者（18–30歲青年族群）</h3>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1 bg-rail-dark rounded-full text-xs text-rail-muted">
+              <i data-lucide="camera" class="w-3.5 h-3.5 text-rail-gold"></i>
+              重視復古寫真、生活質感
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div class="space-y-3">
+              <h4 class="text-rail-gold font-semibold flex items-center gap-1.5">
+                <i data-lucide="search" class="w-4 h-4"></i> 消費者核心洞察
+              </h4>
+              <p class="text-rail-muted leading-relaxed">
+                厭倦千篇一律的商業罐頭景點，追求具備故事底蘊與歷史質感的私房打卡點。將文化園區作為漫遊周遭綠空鐵道與老屋選物店的探索原點。
+              </p>
+              <div class="text-xs bg-rail-dark/60 p-3 rounded-lg border-l-2 border-rail-bronze text-rail-cream">
+                📊 <strong>數據佐證：</strong> 63.2% 偏好「微型展覽與舊軌小市集」；38.6% 著迷於「復古退役列車與老月台寫真」。
+              </div>
+            </div>
+            <div class="space-y-3">
+              <h4 class="text-rail-gold font-semibold flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-4 h-4"></i> 雙重價值需求解決方案
+              </h4>
+              <p class="text-rail-muted leading-relaxed">
+                <strong class="text-rail-parchment">功能需求：</strong>提供清晰流暢的舊城走讀散策導引、主題文創市集與沉浸導覽。<br>
+                <strong class="text-rail-parchment">情感需求：</strong>在社群展現獨特審美品味，於古今交錯的鐵道地景中找尋歷史共鳴。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2 Content -->
+        <div id="tab-content-ta2" class="hidden bg-rail-card p-6 sm:p-8 rounded-2xl border border-rail-card/70 space-y-6">
+          <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 border-b border-rail-muted/20 pb-4">
+            <div>
+              <span class="text-xs font-mono text-rail-gold tracking-widest uppercase">PYRAMID MIDDLE LAYER / 地標觀光</span>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-rail-parchment">外縣市與國際觀光客</h3>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1 bg-rail-dark rounded-full text-xs text-rail-muted">
+              <i data-lucide="globe" class="w-3.5 h-3.5 text-rail-gold"></i>
+              重視出站即達、城市名片
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div class="space-y-3">
+              <h4 class="text-rail-gold font-semibold flex items-center gap-1.5">
+                <i data-lucide="search" class="w-4 h-4"></i> 消費者核心洞察
+              </h4>
+              <p class="text-rail-muted leading-relaxed">
+                重視交通時間成本，需要下車即刻抵達、具備絕對代表性的城市門面地標；同時需要兼具避暑歇息、特色餐飲與在地伴手禮採買的一站式備案。
+              </p>
+              <div class="text-xs bg-rail-dark/60 p-3 rounded-lg border-l-2 border-rail-bronze text-rail-cream">
+                📊 <strong>數據佐證：</strong> 66.2% 強烈依賴「鐵鹿大街」買伴手禮、吹冷氣與餐飲休憩；50.7% 需要免門票微型展覽。
+              </div>
+            </div>
+            <div class="space-y-3">
+              <h4 class="text-rail-gold font-semibold flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-4 h-4"></i> 雙重價值需求解決方案
+              </h4>
+              <p class="text-rail-muted leading-relaxed">
+                <strong class="text-rail-parchment">功能需求：</strong>出站零距離串接全天候室內休憩與伴手禮名店，無行李負擔。<br>
+                <strong class="text-rail-parchment">情感需求：</strong>建立對臺中舊城的第一經典印象，輕鬆蒐集必訪文化景致。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3 Content -->
+        <div id="tab-content-ta3" class="hidden bg-rail-card p-6 sm:p-8 rounded-2xl border border-rail-card/70 space-y-6">
+          <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 border-b border-rail-muted/20 pb-4">
+            <div>
+              <span class="text-xs font-mono text-rail-gold tracking-widest uppercase">PYRAMID BASE LAYER / 微觀光與輕體驗</span>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-rail-parchment">過境通勤與轉運族群（人流最大宗）</h3>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1 bg-rail-dark rounded-full text-xs text-rail-muted">
+              <i data-lucide="fast-forward" class="w-3.5 h-3.5 text-rail-gold"></i>
+              時間高度敏感、尋求短暫抽離
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div class="space-y-3">
+              <h4 class="text-rail-gold font-semibold flex items-center gap-1.5">
+                <i data-lucide="search" class="w-4 h-4"></i> 消費者核心洞察
+              </h4>
+              <p class="text-rail-muted leading-relaxed">
+                等車空檔通常僅有 30–60 分鐘，排斥繁複耗時的逛街動線；但極度渴望在疲憊的轉乘等待中，獲得短暫舒服的感官放鬆與情緒抽離。
+              </p>
+              <div class="text-xs bg-rail-dark/60 p-3 rounded-lg border-l-2 border-rail-bronze text-rail-cream">
+                📊 <strong>數據佐證：</strong> 70.6% 核心痛點為「急著轉乘的時間疑慮」；56.5% 願意在 30 分鐘內小憩喝杯咖啡。
+              </div>
+            </div>
+            <div class="space-y-3">
+              <h4 class="text-rail-gold font-semibold flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-4 h-4"></i> 雙重價值需求解決方案
+              </h4>
+              <p class="text-rail-muted leading-relaxed">
+                <strong class="text-rail-parchment">功能需求：</strong>提供快捷充電座、快閃美食、行李寄放友善與清晰 15-30 分鐘漫步指標。<br>
+                <strong class="text-rail-parchment">情感需求：</strong>打破無聊等車時光，用一杯車廂咖啡將枯燥轉運昇華為微度假驚喜。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitor Matrix & Positioning Highlight -->
+      <div class="bg-rail-card/40 rounded-2xl border border-rail-card p-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+          <div>
+            <span class="text-xs font-mono text-rail-bronze tracking-widest uppercase">STRATEGIC ADVANTAGE</span>
+            <h3 class="font-serif text-2xl font-bold text-rail-parchment">全舊城區唯一「右上象限」制高點</h3>
+          </div>
+          <span class="text-xs text-rail-muted bg-rail-dark px-3 py-1.5 rounded-lg border border-rail-card">
+            對標：國家漫畫博物館、審計新村、臺中州廳、帝國製糖廠
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+          <div class="p-4 rounded-xl bg-rail-dark/70 border border-rail-card/80">
+            <div class="text-rail-gold font-semibold mb-1 flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4"></i> TA1 散策樞紐度
+            </div>
+            <p class="text-xs text-rail-muted">
+              相較於審計新村或帝國糖廠的「單點孤立」，臺中驛具備全區核心地理位置，是舊城漫步的最強起點。
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-rail-dark/70 border border-rail-card/80">
+            <div class="text-rail-gold font-semibold mb-1 flex items-center gap-2">
+              <i data-lucide="train-front" class="w-4 h-4"></i> TA2 到達便利度
+            </div>
+            <p class="text-xs text-rail-muted">
+              免轉乘市區公車，臺鐵、高鐵接駁「出站即達」，直接享有國定古蹟外觀與冷氣商業配套。
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-rail-dark/70 border border-rail-card/80">
+            <div class="text-rail-gold font-semibold mb-1 flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4"></i> TA3 快閃高效率
+            </div>
+            <p class="text-xs text-rail-muted">
+              在不需負擔長距離移動的前提下，15–30 分鐘即可完成「快捷採買伴手禮＋舊月台五感沉浸微放鬆」。
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Postcard / Time Capsule Section -->
+  <section id="postcard" class="py-24 bg-rail-charcoal relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 text-rail-bronze text-xs font-semibold tracking-widest uppercase mb-2">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          INTERACTIVE POSTCARD
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-rail-parchment">
+          時空郵筒：寄給未來的微光記憶
+        </h2>
+        <p class="text-rail-muted mt-3 text-sm">
+          結合企劃中「時空郵筒」的創意發想，寫下一段寄託給半年後的期許或對老車站的情感，製作專屬於你的復古數位明信片。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Postcard Generator Form -->
+        <div class="lg:col-span-6 bg-rail-card p-6 sm:p-8 rounded-2xl border border-rail-card shadow-lg space-y-4">
+          <h3 class="font-serif text-lg font-bold text-rail-parchment flex items-center gap-2">
+            <i data-lucide="pen-tool" class="w-4 h-4 text-rail-gold"></i>
+            填寫時空車票留言
+          </h3>
+
+          <div>
+            <label class="block text-xs font-mono text-rail-muted uppercase mb-1">寄件旅人稱呼 (Sender)</label>
+            <input type="text" id="pc-sender" placeholder="例如：過境的時空旅人" value="時空旅人" class="w-full bg-rail-dark border border-rail-muted/30 rounded-lg px-3.5 py-2.5 text-sm text-rail-parchment focus:outline-none focus:border-rail-gold transition-colors">
+          </div>
+
+          <div>
+            <label class="block text-xs font-mono text-rail-muted uppercase mb-1">抵達的未來時空 (Deliver Date)</label>
+            <select id="pc-time" class="w-full bg-rail-dark border border-rail-muted/30 rounded-lg px-3.5 py-2.5 text-sm text-rail-parchment focus:outline-none focus:border-rail-gold transition-colors">
+              <option value="半年後 (2027 初夏)">半年後 (2027 初夏)</option>
+              <option value="一年後 (2027 深秋)">一年後 (2027 深秋)</option>
+              <option value="給過去的自己 (大墩時代)">給過去的自己 (大墩時代)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-mono text-rail-muted uppercase mb-1">經典郵戳意象 (Postmark Style)</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" onclick="selectStamp('train')" class="stamp-opt active p-2.5 rounded-lg border border-rail-gold bg-rail-dark text-xs text-rail-parchment flex flex-col items-center gap-1 hover:border-rail-gold">
+                <i data-lucide="train" class="w-4 h-4 text-rail-gold"></i>
+                百年鐵道
+              </button>
+              <button type="button" onclick="selectStamp('clock')" class="stamp-opt p-2.5 rounded-lg border border-rail-card bg-rail-dark text-xs text-rail-muted flex flex-col items-center gap-1 hover:border-rail-gold">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+                歲月指針
+              </button>
+              <button type="button" onclick="selectStamp('ticket')" class="stamp-opt p-2.5 rounded-lg border border-rail-card bg-rail-dark text-xs text-rail-muted flex flex-col items-center gap-1 hover:border-rail-gold">
+                <i data-lucide="ticket" class="w-4 h-4"></i>
+                大墩車票
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-mono text-rail-muted uppercase mb-1">捎給未來的文字 (Message)</label>
+            <textarea id="pc-message" rows="3" class="w-full bg-rail-dark border border-rail-muted/30 rounded-lg p-3 text-sm text-rail-parchment focus:outline-none focus:border-rail-gold transition-colors" placeholder="寫下當前的生活迷惘、給自己的鼓勵，或是走過老月台時湧現的心境...">希望未來的我，依然保持對未知事物的好奇，就像第一次走出舊車站穿堂時那樣純粹與堅定。</textarea>
+          </div>
+
+          <div class="pt-2">
+            <button type="button" onclick="generatePostcard()" class="w-full py-3 bg-rail-bronze hover:bg-rail-gold text-white hover:text-rail-charcoal font-semibold rounded-xl text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
+              <i data-lucide="stamp" class="w-4 h-4"></i>
+              即時敲印我的時空明信片
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Postcard Preview (Retro aesthetic) -->
+        <div class="lg:col-span-6 flex flex-col items-center">
+          <div id="postcard-preview" class="w-full max-w-md bg-[#f7f2e7] text-stone-900 rounded-xl p-6 sm:p-8 shadow-2xl relative border-4 border-[#e5dcce] transition-transform duration-300">
+            <!-- Vintage stamp top-right -->
+            <div class="absolute top-6 right-6 w-16 h-20 border-2 border-dashed border-red-800/60 bg-red-50/50 flex flex-col items-center justify-center p-1 text-center rotate-3 shadow-sm">
+              <span class="text-[8px] font-mono text-red-900 tracking-tighter uppercase font-bold">TAICHUNG</span>
+              <div id="stamp-icon-preview">
+                <i data-lucide="train" class="w-6 h-6 text-red-800 my-0.5"></i>
+              </div>
+              <span class="text-[9px] font-serif font-black text-red-900">舊驛新憶</span>
+              <span class="text-[7px] font-mono text-stone-500">NT$ 2026</span>
+            </div>
+
+            <!-- Postcard Header -->
+            <div class="border-b-2 border-stone-800/40 pb-3 mb-5 pr-20">
+              <div class="text-[9px] font-mono tracking-widest text-stone-600 uppercase">TIME TRAVEL POSTCARD</div>
+              <div class="font-serif font-black text-xl tracking-wider text-stone-900">臺中驛・時空郵遞</div>
+            </div>
+
+            <!-- Body Message -->
+            <div class="min-h-[140px] flex flex-col justify-between">
+              <p id="preview-text" class="font-serif text-sm leading-relaxed text-stone-800 whitespace-pre-wrap">
+                希望未來的我，依然保持對未知事物的好奇，就像第一次走出舊車站穿堂時那樣純粹與堅定。
+              </p>
+
+              <div class="mt-6 pt-4 border-t border-dashed border-stone-400/80 flex justify-between items-end text-xs">
+                <div>
+                  <div class="text-[9px] text-stone-500 font-mono">寄件旅人 / SENDER</div>
+                  <div id="preview-sender" class="font-serif font-bold text-stone-900">時空旅人</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-[9px] text-stone-500 font-mono">預定開啟 / ARRIVAL</div>
+                  <div id="preview-time" class="font-mono text-[11px] text-stone-700">半年後 (2027 初夏)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Slogan Stamp -->
+            <div class="mt-4 pt-3 border-t border-stone-300 flex items-center justify-between text-[10px] text-stone-500">
+              <span class="font-serif italic">「歲月日新，驛動人心」</span>
+              <span class="font-mono">No. TC-1905-2026</span>
+            </div>
+          </div>
+
+          <!-- Notification Feedback Box -->
+          <div id="postcard-alert" class="hidden mt-4 p-3 bg-rail-dark border border-rail-gold/40 text-rail-gold text-xs rounded-lg flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-rail-gold"></i>
+            <span>明信片已完成封蠟！可透過右側預覽存檔留念。</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Production Team & Reflections Section -->
+  <section id="team" class="py-24 bg-rail-dark relative border-t border-rail-card">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 text-rail-bronze text-xs font-semibold tracking-widest uppercase mb-2">
+          <i data-lucide="award" class="w-4 h-4"></i>
+          CREATIVE CREW & REFLECTIONS
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-rail-parchment">
+          甲八製作組・幕後團隊與心聲
+        </h2>
+        <p class="text-rail-muted mt-3 text-sm sm:text-base">
+          從最初的田野考察、劇本激盪、分鏡草繪到掌鏡與後期剪輯，凝聚每一個成員對舊城歷史的熱忱。
+        </p>
+      </div>
+
+      <!-- Mentors Banner -->
+      <div class="max-w-4xl mx-auto mb-12 p-4 bg-rail-card/70 rounded-xl border border-rail-card flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-rail-charcoal border border-rail-gold/40 flex items-center justify-center text-rail-gold">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xs text-rail-muted font-mono uppercase">PROJECT ADVISORS</div>
+            <div class="text-sm font-serif font-bold text-rail-parchment">指導老師名單</div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 justify-center text-xs font-medium text-rail-cream">
+          <span class="px-3 py-1 bg-rail-dark rounded-md border border-rail-card">李悅端 老師</span>
+          <span class="px-3 py-1 bg-rail-dark rounded-md border border-rail-card">李律峰 老師</span>
+          <span class="px-3 py-1 bg-rail-dark rounded-md border border-rail-card">丁美靜 老師</span>
+          <span class="px-3 py-1 bg-rail-dark rounded-md border border-rail-card">王婉禎 老師</span>
+        </div>
+      </div>
+
+      <!-- Members Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Member 1: 黃佳芊 -->
+        <div class="bg-rail-card rounded-2xl p-6 border border-rail-card/80 hover:border-rail-bronze/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-serif font-bold text-lg text-rail-parchment">黃佳芊</span>
+              <span class="text-xs px-2.5 py-1 bg-rail-bronze/20 text-rail-gold rounded font-mono">組長・企劃</span>
+            </div>
+            <p class="text-xs text-rail-muted leading-relaxed">
+              「在學期初就知道這次影展是很大的挑戰。從頭到尾靠自己摸索，焦慮轉化為跟組員共同奮戰的動力。期待甲八最後在螢幕上呈現的所有細節！」
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rail-card/60 flex items-center gap-1.5 text-[11px] text-rail-bronze">
+            <i data-lucide="sparkle" class="w-3.5 h-3.5"></i>
+            整體進度掌控與企劃整合
+          </div>
+        </div>
+
+        <!-- Member 2: 鄭芷盈 -->
+        <div class="bg-rail-card rounded-2xl p-6 border border-rail-card/80 hover:border-rail-bronze/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-serif font-bold text-lg text-rail-parchment">鄭芷盈</span>
+              <span class="text-xs px-2.5 py-1 bg-rail-bronze/20 text-rail-gold rounded font-mono">拍攝・剪輯・企劃</span>
+            </div>
+            <p class="text-xs text-rail-muted leading-relaxed">
+              「擔任拍攝職位既興奮又緊張，希望能充分展現所學的鏡頭語彙，帶著新設備在老月台與新舊穿堂碰撞出火花，捕捉最具呼吸感的時空光影。」
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rail-card/60 flex items-center gap-1.5 text-[11px] text-rail-bronze">
+            <i data-lucide="video" class="w-3.5 h-3.5"></i>
+            現場掌鏡與時空轉場剪接
+          </div>
+        </div>
+
+        <!-- Member 3: 李佳臻 -->
+        <div class="bg-rail-card rounded-2xl p-6 border border-rail-card/80 hover:border-rail-bronze/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-serif font-bold text-lg text-rail-parchment">李佳臻</span>
+              <span class="text-xs px-2.5 py-1 bg-rail-bronze/20 text-rail-gold rounded font-mono">導演・企劃</span>
+            </div>
+            <p class="text-xs text-rail-muted leading-relaxed">
+              「從過往看學長姐的作品到如今自己導戲，感觸極深。劇本上的文字在攝影機中具象化時真的很不可思議，互助讓拍攝過程成了最美麗的回憶。」
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rail-card/60 flex items-center gap-1.5 text-[11px] text-rail-bronze">
+            <i data-lucide="clapperboard" class="w-3.5 h-3.5"></i>
+            場面調度與演員情感引導
+          </div>
+        </div>
+
+        <!-- Member 4: 莫筑晴 -->
+        <div class="bg-rail-card rounded-2xl p-6 border border-rail-card/80 hover:border-rail-bronze/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-serif font-bold text-lg text-rail-parchment">莫筑晴</span>
+              <span class="text-xs px-2.5 py-1 bg-rail-bronze/20 text-rail-gold rounded font-mono">美術・企劃・演員</span>
+            </div>
+            <p class="text-xs text-rail-muted leading-relaxed">
+              「負責封面視覺、服裝搭配並同時擔任演員。鏡頭前如何自然流露穿越時空的表情是很大挑戰，盼望能用最有質感的視覺抓住觀眾的心。」
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rail-card/60 flex items-center gap-1.5 text-[11px] text-rail-bronze">
+            <i data-lucide="palette" class="w-3.5 h-3.5"></i>
+            復古造型美術與女主角出演
+          </div>
+        </div>
+
+        <!-- Member 5: 洪筠淇 -->
+        <div class="bg-rail-card rounded-2xl p-6 border border-rail-card/80 hover:border-rail-bronze/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-serif font-bold text-lg text-rail-parchment">洪筠淇</span>
+              <span class="text-xs px-2.5 py-1 bg-rail-bronze/20 text-rail-gold rounded font-mono">企劃</span>
+            </div>
+            <p class="text-xs text-rail-muted leading-relaxed">
+              「企劃不只是文字排版，更需要強大的邏輯思辨去解構問題。在多次推導 SWOT、STP 的過程中收穫滿滿，感謝隊友總是及時拯救我的思考盲點。」
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rail-card/60 flex items-center gap-1.5 text-[11px] text-rail-bronze">
+            <i data-lucide="pie-chart" class="w-3.5 h-3.5"></i>
+            問卷數據分析與策略擬定
+          </div>
+        </div>
+
+        <!-- Member 6: 顏尹柔 -->
+        <div class="bg-rail-card rounded-2xl p-6 border border-rail-card/80 hover:border-rail-bronze/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-serif font-bold text-lg text-rail-parchment">顏尹柔</span>
+              <span class="text-xs px-2.5 py-1 bg-rail-bronze/20 text-rail-gold rounded font-mono">文案・企劃</span>
+            </div>
+            <p class="text-xs text-rail-muted leading-relaxed">
+              「在發想 Slogan 的腦力激盪中，學會將大家零散的情感碎片提煉為『歲月日新，驛動人心』這句有力道的話，希望能持續傳遞共鳴。」
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rail-card/60 flex items-center gap-1.5 text-[11px] text-rail-bronze">
+            <i data-lucide="feather" class="w-3.5 h-3.5"></i>
+            標語金句與企劃文案撰寫
+          </div>
+        </div>
+
+        <!-- Member 7: 呂學禹 (Full-width on mobile, centered card) -->
+        <div class="bg-rail-card rounded-2xl p-6 border border-rail-card/80 hover:border-rail-bronze/50 transition-all duration-300 flex flex-col justify-between md:col-span-2 lg:col-span-1">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-serif font-bold text-lg text-rail-parchment">呂學禹</span>
+              <span class="text-xs px-2.5 py-1 bg-rail-bronze/20 text-rail-gold rounded font-mono">劇務</span>
+            </div>
+            <p class="text-xs text-rail-muted leading-relaxed">
+              「劇務讓我深切體會團隊溝通協作與幕後後勤的重要性。儘管拍攝過程中狀況不斷，但踏實做好每一個支援任務，是整個影片順利的關鍵基石。」
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rail-card/60 flex items-center gap-1.5 text-[11px] text-rail-bronze">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+            現場陳設、道具與後勤安全
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-rail-charcoal border-t border-rail-card py-16 text-rail-muted text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+        
+        <div>
+          <div class="font-serif font-bold text-base text-rail-parchment tracking-widest mb-1">
+            《舊驛新憶》影展專題專案
+          </div>
+          <p class="text-rail-muted">
+            以臺中驛鐵道文化園區為場域之短影音行銷策略企劃・甲八製作組
+          </p>
+          <p class="text-[11px] text-rail-muted/70 mt-1">
+            國定古蹟二代車站 × 退役列車 × 鐵鹿大街生活圈
+          </p>
+        </div>
+
+        <!-- Center Stamp Seal -->
+        <div class="w-20 h-20 rounded-full border border-dashed border-rail-gold/40 flex flex-col items-center justify-center p-2 text-center text-rail-gold">
+          <span class="text-[8px] font-mono tracking-tighter">TAICHUNG</span>
+          <span class="text-[11px] font-serif font-black my-0.5">驛動人心</span>
+          <span class="text-[7px] font-mono">1905-2026</span>
+        </div>
+
+        <!-- Back to Top & Legal -->
+        <div class="flex flex-col items-center md:items-end gap-3">
+          <a href="#hero" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rail-dark hover:bg-rail-card border border-rail-card text-rail-parchment transition-colors">
+            <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+            返回頂部
+          </a>
+          <div>
+            &copy; 2026 舊驛新憶專案小組. All Rights Reserved.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Video Player Switcher
+    function changeVideo(youtubeId, title, desc, tag, duration, btnElement) {
+      const player = document.getElementById('main-video-player');
+      player.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1`;
+      
+      document.getElementById('video-title').innerText = title;
+      document.getElementById('video-desc').innerText = desc;
+      document.getElementById('video-tag').innerText = tag;
+      document.getElementById('video-duration').innerText = duration;
+
+      // Update button active states
+      document.querySelectorAll('.video-btn').forEach(btn => {
+        btn.classList.remove('active', 'border-2', 'border-rail-gold', 'bg-rail-card');
+        btn.classList.add('bg-rail-card/60', 'border', 'border-rail-card');
+        const badge = btn.querySelector('.text-\\[10px\\]');
+        if (badge && badge.innerText.includes('NOW PLAYING')) {
+          badge.innerText = 'EPISODE';
+          badge.classList.remove('text-rail-gold');
+          badge.classList.add('text-rail-muted');
+        }
+      });
+
+      btnElement.classList.add('active', 'border-2', 'border-rail-gold', 'bg-rail-card');
+      btnElement.classList.remove('bg-rail-card/60', 'border-rail-card');
+      const activeBadge = btnElement.querySelector('.text-\\[10px\\]');
+      if (activeBadge) {
+        activeBadge.innerText = 'NOW PLAYING';
+        activeBadge.classList.add('text-rail-gold');
+        activeBadge.classList.remove('text-rail-muted');
+      }
+
+      // Smooth scroll to video on mobile
+      if (window.innerWidth < 768) {
+        document.getElementById('video').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Photo Lightbox Controls
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDesc = document.getElementById('lightbox-desc');
+
+    function openLightbox(src, title, desc) {
+      lightboxImg.src = src;
+      lightboxTitle.innerText = title;
+      lightboxDesc.innerText = desc;
+      lightboxModal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      lucide.createIcons();
+    }
+
+    function closeLightbox() {
+      lightboxModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+
+    // STP Persona Tab Switcher
+    function switchTab(tabId) {
+      const tabs = ['ta1', 'ta2', 'ta3'];
+      tabs.forEach(t => {
+        const content = document.getElementById(`tab-content-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tabId) {
+          content.classList.remove('hidden');
+          btn.classList.add('border-rail-gold', 'text-rail-gold');
+          btn.classList.remove('border-transparent', 'text-rail-muted');
+        } else {
+          content.classList.add('hidden');
+          btn.classList.remove('border-rail-gold', 'text-rail-gold');
+          btn.classList.add('border-transparent', 'text-rail-muted');
+        }
+      });
+    }
+
+    // Postcard Stamp Selection
+    let currentStamp = 'train';
+    function selectStamp(type) {
+      currentStamp = type;
+      const stampBtns = document.querySelectorAll('.stamp-opt');
+      stampBtns.forEach(b => {
+        b.classList.remove('border-rail-gold', 'text-rail-parchment');
+        b.classList.add('border-rail-card', 'text-rail-muted');
+      });
+      event.currentTarget.classList.add('border-rail-gold', 'text-rail-parchment');
+      event.currentTarget.classList.remove('border-rail-card', 'text-rail-muted');
+
+      // Update stamp icon preview
+      const stampContainer = document.getElementById('stamp-icon-preview');
+      let iconName = 'train';
+      if (type === 'clock') iconName = 'clock';
+      if (type === 'ticket') iconName = 'ticket';
+
+      stampContainer.innerHTML = `<i data-lucide="${iconName}" class="w-6 h-6 text-red-800 my-0.5"></i>`;
+      lucide.createIcons();
+    }
+
+    // Generate & Update Postcard Preview
+    function generatePostcard() {
+      const sender = document.getElementById('pc-sender').value.trim() || '時空旅人';
+      const timeVal = document.getElementById('pc-time').value;
+      const message = document.getElementById('pc-message').value.trim() || '歲月日新，驛動人心。';
+
+      document.getElementById('preview-sender').innerText = sender;
+      document.getElementById('preview-time').innerText = timeVal;
+      document.getElementById('preview-text').innerText = message;
+
+      // Animate postcard slightly
+      const card = document.getElementById('postcard-preview');
+      card.classList.add('scale-105');
+      setTimeout(() => {
+        card.classList.remove('scale-105');
+      }, 250);
+
+      // Show alert box
+      const alertBox = document.getElementById('postcard-alert');
+      alertBox.classList.remove('hidden');
+      setTimeout(() => {
+        alertBox.classList.add('hidden');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
