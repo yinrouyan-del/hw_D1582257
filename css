@@ -1,0 +1,836 @@
+/* ==========================================================================
+   舊驛新憶 (Past Station, Present Memories) - 專題網頁完整樣式表
+   Design: 鐵道復古紅磚 x 炭焙深色 x 現代電影質感
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS 變數與全域設定 (Variables & Reset)
+   -------------------------------------------------------------------------- */
+:root {
+  /* 品牌色系 */
+  --color-bg-primary: #121316;
+  --color-bg-secondary: #1a1c23;
+  --color-bg-card: rgba(30, 33, 42, 0.75);
+  --color-bg-elevated: #242833;
+  
+  /* 鐵道與歲月主題色 */
+  --color-brick: #b33927;
+  --color-brick-hover: #cf4330;
+  --color-rail-gold: #c59b27;
+  --color-rail-gold-light: #dfb23e;
+  --color-steel: #8e9aaf;
+  
+  /* 文字色調 */
+  --color-text-main: #f0ede6;
+  --color-text-muted: #a6abb7;
+  --color-text-dim: #6c7383;
+  --color-parchment: #f4ece1;
+
+  /* 邊框與陰影 */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(197, 155, 39, 0.3);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 8px 24px rgba(197, 155, 39, 0.15);
+
+  /* 字體堆疊 */
+  --font-serif: "Noto Serif TC", "Songti TC", "Baskerville", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang TC", "Noto Sans TC", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", monospace;
+
+  /* 轉場動畫 */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-main);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(179, 57, 39, 0.18), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 90% 40%, rgba(197, 155, 39, 0.06), transparent 60%),
+    var(--color-bg-primary);
+}
+
+/* 滾動條樣式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-elevated);
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brick);
+}
+
+/* 常用容器與排版工具 */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-rail-gold);
+  border: 1px solid var(--border-gold);
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  margin-bottom: 0.85rem;
+  background: rgba(197, 155, 39, 0.05);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text-main);
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto 3rem auto;
+}
+
+.text-center { text-align: center; }
+
+/* --------------------------------------------------------------------------
+   2. 頂部導覽列 (Navigation)
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(18, 19, 22, 0.85);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all var(--transition-smooth);
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-logo svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--color-rail-gold);
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-main);
+}
+
+.brand-badge {
+  font-size: 0.7rem;
+  color: var(--color-brick);
+  background: rgba(179, 57, 39, 0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.8rem;
+}
+
+.nav-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-rail-gold);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--color-rail-gold);
+  transition: width var(--transition-smooth);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   3. 主視覺英雄區 (Hero Section)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 1.5rem 60px;
+  background: 
+    linear-gradient(180deg, rgba(18, 19, 22, 0.6) 0%, rgba(18, 19, 22, 0.95) 100%),
+    url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(18, 19, 22, 0.85) 90%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+.hero-subtag {
+  color: var(--color-rail-gold);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-text-main);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.hero-slogan {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--color-parchment);
+  letter-spacing: 0.35em;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.75rem;
+}
+
+.hero-slogan::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  right: 25%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-rail-gold), transparent);
+}
+
+.hero-description {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.btn-primary {
+  background: var(--color-brick);
+  color: #fff;
+  border: 1px solid var(--color-brick);
+  box-shadow: 0 4px 16px rgba(179, 57, 39, 0.4);
+}
+.btn-primary:hover {
+  background: var(--color-brick-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(179, 57, 39, 0.6);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-main);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(4px);
+}
+.btn-outline:hover {
+  border-color: var(--color-rail-gold);
+  color: var(--color-rail-gold);
+  background: rgba(197, 155, 39, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   4. 影展影片放映專區 (Video Screening Room)
+   -------------------------------------------------------------------------- */
+.screening-section {
+  padding: 6rem 0;
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.video-player-container {
+  max-width: 960px;
+  margin: 0 auto 2rem;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-subtle);
+}
+
+.video-aspect-ratio {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+.video-aspect-ratio iframe,
+.video-aspect-ratio video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 影片清單按鈕切換 */
+.video-playlist-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.playlist-btn {
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--color-text-muted);
+  padding: 0.75rem 1.4rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all var(--transition-fast);
+}
+
+.playlist-btn.active,
+.playlist-btn:hover {
+  background: rgba(197, 155, 39, 0.12);
+  border-color: var(--color-rail-gold);
+  color: var(--color-rail-gold);
+}
+
+/* --------------------------------------------------------------------------
+   5. 臺中驛實景寫真圖廊 (Photo Gallery & Lightbox)
+   -------------------------------------------------------------------------- */
+.gallery-section {
+  padding: 6rem 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  height: 280px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-bg-elevated);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-subtle);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-rail-gold);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.08);
+}
+
+.gallery-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.5rem 1.25rem 1rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 11, 14, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.gallery-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.gallery-tag {
+  font-size: 0.8rem;
+  color: var(--color-rail-gold);
+}
+
+/* 燈箱 Lightbox */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 900px;
+  width: 100%;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.lightbox-img-wrap {
+  width: 100%;
+  max-height: 520px;
+  background: #000;
+}
+
+.lightbox-img-wrap img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.lightbox-info {
+  padding: 1.5rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. 故事大綱與分鏡卡片 (Story & Storyboard)
+   -------------------------------------------------------------------------- */
+.story-section {
+  padding: 6rem 0;
+  background: var(--color-bg-secondary);
+}
+
+.story-card-narrative {
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  line-height: 1.9;
+  position: relative;
+}
+
+.story-card-narrative::before {
+  content: "“";
+  position: absolute;
+  top: 0.5rem;
+  left: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  color: var(--border-gold);
+  line-height: 1;
+}
+
+.storyboard-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.shot-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.shot-header {
+  background: var(--color-bg-elevated);
+  padding: 0.65rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.shot-scene {
+  color: var(--color-rail-gold);
+  font-weight: 600;
+}
+
+.shot-duration {
+  color: var(--color-text-dim);
+}
+
+.shot-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shot-description {
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  margin-bottom: 0.75rem;
+}
+
+.shot-audio {
+  font-size: 0.82rem;
+  color: var(--color-steel);
+  font-family: var(--font-mono);
+}
+
+/* --------------------------------------------------------------------------
+   7. 行銷定位與數據分析 (STP & Targeting)
+   -------------------------------------------------------------------------- */
+.strategy-section {
+  padding: 6rem 0;
+}
+
+.ta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.ta-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-smooth);
+}
+
+.ta-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-rail-gold);
+}
+
+.ta-badge {
+  font-size: 0.75rem;
+  color: var(--color-rail-gold);
+  background: rgba(197, 155, 39, 0.12);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.ta-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #fff;
+}
+
+.ta-metric {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  color: var(--color-brick);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ta-list {
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.ta-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.ta-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-rail-gold);
+}
+
+/* --------------------------------------------------------------------------
+   8. 時空郵筒互動區 (Interactive Postcard Capsule)
+   -------------------------------------------------------------------------- */
+.capsule-section {
+  padding: 6rem 0;
+  background: 
+    radial-gradient(circle at center, rgba(179, 57, 39, 0.12) 0%, transparent 70%),
+    var(--color-bg-secondary);
+}
+
+.capsule-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-gold);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-parchment);
+  margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(15, 17, 21, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-rail-gold);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* --------------------------------------------------------------------------
+   9. 團隊成員心得專區 (Team & Reflections)
+   -------------------------------------------------------------------------- */
+.team-section {
+  padding: 6rem 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.member-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.member-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.65rem;
+}
+
+.member-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.member-role {
+  font-size: 0.82rem;
+  color: var(--color-rail-gold);
+  font-weight: 500;
+}
+
+.member-quote {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   10. 頁尾 (Footer)
+   -------------------------------------------------------------------------- */
+.footer {
+  padding: 4rem 0 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+  background: #0d0e11;
+  text-align: center;
+}
+
+.footer-slogan {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 0.25em;
+  color: var(--color-rail-gold);
+  margin-bottom: 1.5rem;
+}
+
+.footer-copy {
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. 響應式斷點 (Media Queries / RWD)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .nav-links {
+    display: none; /* 建議搭配行動端漢堡選單 JS 切換 */
+  }
+  .hero-title {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 100px;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .capsule-wrapper,
+  .story-card-narrative {
+    padding: 1.75rem;
+  }
+}
